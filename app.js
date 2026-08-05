@@ -87,7 +87,10 @@ function isRescueEligible(row) {
 function productNote(r) {
   const parts = [];
   if (r.quantity_available != null) parts.push(`${r.quantity_available} ${r.unit || "in stock"}`);
-  if (r.best_before_days != null) parts.push(`best before ${r.best_before_days} days`);
+  if (r.best_before_days != null) {
+    const d = Number(r.best_before_days);
+    parts.push(`best before ${d} ${d === 1 ? "day" : "days"}`);
+  }
   if (r.price_eur != null) parts.push(fmtEuro(r.price_eur));
   return parts.join(" · ");
 }
