@@ -30,12 +30,11 @@ before the previous one finishes; every agent consumes the previous agent's outp
 - **Article 50 transparency disclosure** in the footer.
 - Mobile-first, AA contrast, `prefers-reduced-motion`, `<noscript>` fallback.
 
-## Set up your live data (required)
+## Live data (already configured)
 
-Follow **`SHEET_SETUP.md`**:
-1. Create the Google Sheet, publish it to the web.
-2. Import `data/harbour_pine_inventory.csv` (Replace current sheet).
-3. Paste the sheet ID into `config.js`.
+The `harbour_pine_inventory` Google Sheet **already exists** and is shared
+"anyone with the link". Its ID is set in `config.js`; the page re-fetches it on every
+load (JSONP with `&headers=1`). See **`SHEET_SETUP.md`** to inspect or re-create it.
 
 Test locally: open `index.html` — the status strip must show
 `Live inventory · 21 rows · <time>`.

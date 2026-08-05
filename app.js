@@ -3,7 +3,7 @@
 // (2) UK Carbon Intensity API for the cleanest delivery window. Hosted on GitHub Pages.
 
 const CFG = window.CONFIG;
-const SHEET_URL = `https://docs.google.com/spreadsheets/d/${CFG.SHEET_ID}/gviz/tq?tqx=out:json`;
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${CFG.SHEET_ID}/gviz/tq?tqx=out:json&headers=1`;
 
 const STATE = {
   rows: [],
