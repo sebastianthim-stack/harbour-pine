@@ -17,6 +17,18 @@
   var nameEl = panel.querySelector(".pp-name");
   var noteEl = panel.querySelector(".pp-note");
 
+  img.onerror = function () {
+    if (!img.dataset.fbk && img.src.slice(-4) === ".jpg") {
+      img.dataset.fbk = "1";
+      img.src = img.src.slice(0, -4) + ".svg";
+    } else {
+      img.hidden = true;
+    }
+  };
+  img.onload = function () {
+    img.dataset.fbk = "";
+  };
+
   var list = document.getElementById("box-list");
   if (!list) return;
 
