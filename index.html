@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harbour &amp; Pine — The Rescue Box</title>
+  <meta name="description" content="Weekly Rescue Boxes of near-expiry produce at 40% off, picked from live inventory. Zero waste, zero shame." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <noscript>
+    <p class="noscript">This page needs JavaScript to load the live inventory. Please enable JavaScript to see this week&rsquo;s Rescue Box.</p>
+  </noscript>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Zero-waste grocery &amp; deli · Dublin Docklands</span>
+      <h1>Don&rsquo;t bin it. <em>Box it.</em></h1>
+      <p class="lede">A weekly <strong>Rescue Box</strong> of produce that&rsquo;s about to hit its best-before date &mdash; picked live from what&rsquo;s in our kitchen right now. Good food, 40% off, nothing wasted, no judgement.</p>
+      <a class="cta" href="#box">See this week&rsquo;s box</a>
+    </div>
+  </header>
+
+  <div class="meta-strip" role="status">
+    <div class="stat" id="sheet-stat"><span class="dot dim"></span> Live inventory · connecting…</div>
+    <div class="stat" id="carbon-stat"><span class="dot dim"></span> Delivery window · checking grid…</div>
+  </div>
+
+  <main>
+    <section id="box" class="panel" aria-labelledby="box-title">
+      <h2 id="box-title">This week&rsquo;s box</h2>
+      <p class="panel-note">The contents below are read <strong>live</strong> from our inventory sheet on every page load &mdash; what you see is what is actually near expiry right now.</p>
+      <div id="box-list" class="box-list" aria-live="polite">
+        <p class="loading" id="box-loading">Reading live inventory…</p>
+      </div>
+      <div class="box-footer">
+        <div>
+          <span class="box-count-label">In the box today</span>
+          <span class="box-count" id="box-count">—</span>
+        </div>
+        <div>
+          <span class="box-count-label">Total value</span>
+          <span class="box-count" id="box-value">—</span>
+        </div>
+        <div>
+          <span class="box-count-label">You pay</span>
+          <span class="box-count" id="box-pay">—</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="carbon-title">
+      <h2 id="carbon-title">Cleanest delivery window</h2>
+      <p class="panel-note">We time deliveries to the lowest-carbon windows on the UK grid &mdash; read live from the National Grid Carbon Intensity API.</p>
+      <div id="carbon-box" class="carbon">
+        <p class="loading">Checking the grid…</p>
+      </div>
+    </section>
+
+    <section class="panel" id="signup" aria-labelledby="signup-title">
+      <h2 id="signup-title">Reserve your box</h2>
+      <p class="panel-note">Leave your details and we&rsquo;ll hold a box for you. One-tap opt-out anytime &mdash; no pressure, no shame.</p>
+      <form id="signup-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <fieldset class="field">
+          <legend>How often?</legend>
+          <label class="choice"><input type="radio" name="frequency" value="weekly" checked /> Weekly</label>
+          <label class="choice"><input type="radio" name="frequency" value="fortnightly" /> Fortnightly</label>
+          <label class="choice"><input type="radio" name="frequency" value="one-off" /> Just this once</label>
+        </fieldset>
+        <p class="consent-line">
+          By reserving you agree to be emailed about your box. Unsubscribe with one click &mdash; we&rsquo;d rather lose the email than your trust.
+        </p>
+        <button class="cta" id="submit-btn" type="submit">Reserve my box</button>
+        <p class="form-status" id="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Harbour &amp; Pine</strong> · 12 Riverview Quay, Dublin 1 · hello@harbourandpine.example</p>
+    <p class="disclosure" title="EU AI Act Article 50 transparency disclosure">
+      This page is operated by an AI system connected to Harbour &amp; Pine&rsquo;s live inventory and the UK grid. Contents and times may be wrong or out of date; verify with the shop before relying on them.
+    </p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
