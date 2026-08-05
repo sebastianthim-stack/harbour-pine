@@ -161,6 +161,44 @@ input:focus-visible { outline: 3px solid var(--leaf); outline-offset: 1px; }
 
 .off { background: #f6f1e4; }
 
+.product-item { cursor: pointer; }
+
+.product-preview {
+  position: fixed;
+  z-index: 1000;
+  width: 260px;
+  border-radius: 12px;
+  background: var(--pine);
+  color: var(--cream);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.product-preview .pp-image {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  background: var(--pine-deep);
+}
+
+.product-preview .pp-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.7rem 0.9rem 0.15rem;
+}
+
+.product-preview .pp-note {
+  color: #b8d9b0;
+  font-size: 0.78rem;
+  padding: 0 0.9rem 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .product-preview { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation: none !important; transition: none !important; }

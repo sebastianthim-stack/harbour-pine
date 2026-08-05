@@ -84,6 +84,20 @@ function isRescueEligible(row) {
   return /^(y|yes|true|1)$/i.test(String(row.in_rescue));
 }
 
+function productNote(r) {
+  const parts = [];
+  if (r.quantity_available != null) parts.push(`${r.quantity_available} ${r.unit || "in stock"}`);
+  if (r.best_before_days != null) parts.push(`best before ${r.best_before_days} days`);
+  if (r.price_eur != null) parts.push(fmtEuro(r.price_eur));
+  return parts.join(" · ");
+}
+
+function detailImage(r) {
+  if (r.item_id) return "images/" + r.item_id + ".svg";
+  const slug = String(r.product || r.item || "item").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  return "images/" + slug + ".svg";
+}
+
 function renderBox() {
   const list = document.getElementById("box-list");
   list.innerHTML = "";
@@ -99,12 +113,17 @@ function renderBox() {
 
   eligible.forEach((r) => {
     const div = document.createElement("div");
-    div.className = "box-item";
     const qty = r.quantity_available != null ? r.quantity_available : "?";
     const bestBefore = r.best_before_days != null ? ` · best before <strong>${r.best_before_days} days</strong>` : "";
+    const name = r.product || r.item || "Item";
+    const note = productNote(r);
+    div.className = "box-item product-item";
+    div.setAttribute("data-product-name", name);
+    div.setAttribute("data-detail-image", detailImage(r));
+    if (note) div.setAttribute("data-detail-note", note);
     div.innerHTML =
       `<div>
-         <div class="name">${escapeHtml(r.product || r.item || "Item")}</div>
+         <div class="name">${escapeHtml(name)}</div>
          <div class="meta">${escapeHtml(r.category || "")} · ${escapeHtml(qty)} ${escapeHtml(r.unit || "")}${bestBefore}</div>
        </div>
        <div class="price">${fmtEuro(r.price_eur != null ? r.price_eur : 0)}</div>`;
