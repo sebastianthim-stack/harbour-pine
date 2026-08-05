@@ -96,9 +96,9 @@ function productNote(r) {
 }
 
 function detailImage(r) {
-  if (r.item_id) return "images/" + r.item_id + ".svg";
+  if (r.item_id) return "images/" + r.item_id + ".jpg";
   const slug = String(r.product || r.item || "item").toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  return "images/" + slug + ".svg";
+  return "images/" + slug + ".jpg";
 }
 
 function renderBox() {
