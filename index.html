@@ -27,7 +27,7 @@
   </div>
 
   <main>
-    <section id="box" class="panel" aria-labelledby="box-title">
+    <section id="box" class="panel card" aria-labelledby="box-title">
       <h2 id="box-title">This week&rsquo;s box</h2>
       <p class="panel-note">The contents below are read <strong>live</strong> from our inventory sheet on every page load &mdash; what you see is what is actually near expiry right now.</p>
       <div id="box-list" class="box-list" aria-live="polite">
@@ -42,15 +42,15 @@
           <span class="box-count-label">Total value</span>
           <span class="box-count" id="box-value">—</span>
         </div>
-        <div>
+        <div class="pay">
           <span class="box-count-label">You pay</span>
           <span class="box-count" id="box-pay">—</span>
         </div>
       </div>
     </section>
 
-    <section class="panel" aria-labelledby="carbon-title">
-      <h2 id="carbon-title">Cleanest delivery window</h2>
+    <section class="panel card" aria-labelledby="carbon-title">
+      <h2 id="carbon-title"><svg class="h2-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M5 19C5 10 11 4 20 4c0 9-6 15-15 15Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 19c3-5 7-9 11-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Cleanest delivery window</h2>
       <p class="panel-note">We time deliveries to the lowest-carbon windows on the UK grid &mdash; read live from the National Grid Carbon Intensity API.</p>
       <div id="carbon-box" class="carbon">
         <p class="loading">Checking the grid…</p>
@@ -61,19 +61,23 @@
       <h2 id="signup-title">Reserve your box</h2>
       <p class="panel-note">Leave your details and we&rsquo;ll hold a box for you. One-tap opt-out anytime &mdash; no pressure, no shame.</p>
       <form id="signup-form" novalidate>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
         </div>
         <fieldset class="field">
           <legend>How often?</legend>
-          <label class="choice"><input type="radio" name="frequency" value="weekly" checked /> Weekly</label>
-          <label class="choice"><input type="radio" name="frequency" value="fortnightly" /> Fortnightly</label>
-          <label class="choice"><input type="radio" name="frequency" value="one-off" /> Just this once</label>
+          <div class="segmented">
+            <label class="choice"><input type="radio" name="frequency" value="weekly" checked /> Weekly</label>
+            <label class="choice"><input type="radio" name="frequency" value="fortnightly" /> Fortnightly</label>
+            <label class="choice"><input type="radio" name="frequency" value="one-off" /> Just this once</label>
+          </div>
         </fieldset>
         <p class="consent-line">
           By reserving you agree to be emailed about your box. Unsubscribe with one click &mdash; we&rsquo;d rather lose the email than your trust.
